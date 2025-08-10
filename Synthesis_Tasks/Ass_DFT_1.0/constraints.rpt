@@ -1,0 +1,79 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : uart_tx
+Version: K-2015.06
+Date   : Mon Oct 14 14:10:24 2024
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   scan_fun_rst (dont_touch)
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[6]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[5]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[4]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[3]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[2]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[1]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[0]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/saved_data_reg[7]/SN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/cnt_reg[1]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/cnt_reg[0]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U3/cnt_reg[2]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[7]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[6]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[5]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[4]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[3]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[2]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[1]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U2/saved_data_reg[0]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U0/curent_state_reg[1]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U0/curent_state_reg[2]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U0/curent_state_reg[0]/RN
+                                1.50           2.49          -0.99  (VIOLATED)
+       PIN :   U0_rst_mux/U1/Y
+                                1.50           2.49          -0.99  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                  -0.99  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   scan_fun_rst (dont_touch)
+                                0.55           0.74          -0.19  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                  -0.19  
+
+1

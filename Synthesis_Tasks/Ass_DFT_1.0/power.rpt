@@ -1,0 +1,48 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : uart_tx
+Version: K-2015.06
+Date   : Mon Oct 14 14:10:24 2024
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+uart_tx                tsmc13_wl30       scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+uart_tx                                   0.179 8.10e-02 1.08e+06    0.261 100.0
+  U3 (ser_test_1)                      3.76e-02 3.79e-02 4.41e+05 7.60e-02  29.1
+  U2 (parity_calc_test_1)              2.09e-02 2.55e-02 3.79e+05 4.68e-02  17.9
+  U1 (mux)                             3.09e-03 8.17e-04 4.13e+04 3.95e-03   1.5
+  U0 (fsm_test_1)                      1.41e-02 1.09e-02 1.25e+05 2.51e-02   9.6
+  U0_rst_mux (mux2X1_0)                5.05e-03 2.56e-04 2.11e+04 5.33e-03   2.0
+  U0_clk_mux (mux2X1_1)                9.48e-02 5.02e-03 2.11e+04 9.98e-02  38.2
+1

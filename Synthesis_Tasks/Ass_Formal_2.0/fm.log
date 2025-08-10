@@ -1,0 +1,263 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Mon Oct 14 14:53:20 2024
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+###################################################################
+########################### Variables #############################
+###################################################################
+set SSLIB "/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+###################################################################
+############################ Guidance #############################
+###################################################################
+# Synopsys setup variable
+set synopsys_auto_setup true
+true
+# Formality Setup File
+set_svf "/home/IC/Assignments/Ass_DFT_1.0/dft/uart_tx.svf"
+SVF set to '/home/IC/Assignments/Ass_DFT_1.0/dft/uart_tx.svf'.
+1
+###################################################################
+###################### Reference Container ########################
+###################################################################
+# Read Reference Design Verilog Files
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/fsm.sv"
+No target library specified, default is WORK
+Initializing DesignWare ...
+Initialization Complete
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/fsm.sv'
+Created container 'Ref'
+Current container set to 'Ref'
+1
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/mux.sv"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/mux.sv'
+1
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/mux2X1.sv"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/mux2X1.sv'
+1
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/parity_calc.sv"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/parity_calc.sv'
+1
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/ser.sv"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/ser.sv'
+1
+read_sverilog  -container Ref "/home/IC/Assignments/Ass_DFT_1.0/rtl/uart_tx.sv"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/rtl/uart_tx.sv'
+1
+# Read Reference technology libraries
+read_db -container Ref [list $SSLIB $TTLIB $FFLIB]
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+1
+# set the top Reference Design 
+set_reference_design uart_tx
+Reference design set to 'Ref:/WORK/uart_tx'
+1
+set_top uart_tx
+Setting top design to 'Ref:/WORK/uart_tx'
+Status:   Elaborating design uart_tx   ...  
+Status:   Elaborating design mux2X1   ...  
+Status:   Elaborating design fsm   ...  
+Status:   Elaborating design mux   ...  
+Status:   Elaborating design parity_calc   ...  
+Status:   Elaborating design ser   ...  
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  3 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Ref:/WORK/uart_tx'
+Reference design set to 'Ref:/WORK/uart_tx'
+1
+###################################################################
+#################### Implementation Container #####################
+###################################################################
+# Read Implementation Design Files
+read_verilog -container Imp "/home/IC/Assignments/Ass_DFT_1.0/dft/uart_tx_netlist.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_DFT_1.0/dft/uart_tx_netlist.v'
+Created container 'Imp'
+Current container set to 'Imp'
+1
+# Read Implementation technology libraries
+read_db -container Imp [list $SSLIB $TTLIB $FFLIB]
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/Assignments/Ass_DFT_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+1
+# set the top Implementation Design
+set_implementation_design uart_tx
+Implementation design set to 'Imp:/WORK/uart_tx'
+1
+set_top uart_tx
+Setting top design to 'Imp:/WORK/uart_tx'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  3 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Imp:/WORK/uart_tx'
+Implementation design set to 'Imp:/WORK/uart_tx'
+1
+###################### Matching Compare points ####################
+match
+Reference design is 'Ref:/WORK/uart_tx'
+Implementation design is 'Imp:/WORK/uart_tx'
+Status:  Checking designs...
+    Warning: 1 (0) undriven nets found in reference (implementation) design; see formality.log for list (FM-399)
+Status:  Building verification models...
+Status:  Processing Guide Commands...
+    Set 'Ref:/WORK/uart_tx/SE' to constant 0    
+    Set 'Imp:/WORK/uart_tx/SE' to constant 0    
+    Set 'Ref:/WORK/uart_tx/test_mode' to constant 1    
+    Set 'Imp:/WORK/uart_tx/test_mode' to constant 1    
+    Set 'Imp:/WORK/uart_tx/SE' to constant 0    ; previous value was also 0
+    Set 'Imp:/WORK/uart_tx/test_mode' to constant 1    ; previous value was also 1
+    Set don't verify point 'Ref:/WORK/uart_tx/SO'
+
+***************************** Guidance Summary *****************************
+                                         Status
+Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
+----------------------------------------------------------------------------
+environment         :          2          0          0          0          2
+mark                :          2          0          0          0          2
+scan_input          :          2          0          0          0          2
+transformation
+   map              :          1          0          0          0          1
+uniquify            :          5          0          0          0          5
+ununiquify          :          1          0          0          0          1
+
+SVF files read:
+      /home/IC/Assignments/Ass_DFT_1.0/dft/uart_tx.svf
+
+SVF files produced:
+  /home/IC/Assignments/Ass_DFT_1.0/fm/formality_svf/
+    svf.txt
+****************************************************************************
+
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 24 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 14 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+######################### Run Verification ########################
+set successful [verify]
+Reference design is 'Ref:/WORK/uart_tx'
+Implementation design is 'Imp:/WORK/uart_tx'
+    
+*********************************** Matching Results ***********************************    
+ 24 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 14 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+***************************** Synopsys Auto Setup Summary ******************************
+
+!!! Synopsys Auto Setup Mode was enabled. !!!
+!!! Verification results are valid assuming the following setup constraints: !!!
+
+### RTL Interpretation Setup
+   set hdlin_ignore_parallel_case false
+   set hdlin_ignore_full_case false
+   set hdlin_error_on_mismatch_message false
+   set hdlin_ignore_embedded_configuration true
+
+### Undriven Signal Handling Setup
+   set verification_set_undriven_signals synthesis
+
+### Test Logic Setup
+   set verification_verify_directly_undriven_output false
+   Constants set on:
+     uart_tx/SE
+     uart_tx/test_mode
+   For details see report_dont_verify_points and report_constants
+
+
+For further details on Synopsys Auto Setup Mode: Type man synopsys_auto_setup
+****************************************************************************************
+
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+   ATTENTION: synopsys_auto_setup mode was enabled.
+              See Synopsys Auto Setup Summary for details.
+----------------------------------------------------------
+ Reference design: Ref:/WORK/uart_tx
+ Implementation design: Imp:/WORK/uart_tx
+ 24 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0       2      22       0      24
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+Not Compared
+  Don't verify                 0       0       0       0       1       0       0       1
+****************************************************************************************
+1
+if {!$successful} {
+diagnose
+analyze_points -failing
+}
+########################### Reporting ############################# 
+report_passing_points > "passing_points.rpt"
+report_failing_points > "failing_points.rpt"
+report_aborted_points > "aborted_points.rpt"
+report_unverified_points > "unverified_points.rpt"
+start_gui
+     1  source -echo -verbose fm_script.tcl
+1
+1
+fm_shell (verify)> exit
+
+Maximum memory usage for this session: 445368 KB
+CPU usage for this session: 2.39 seconds
+Current time: Mon Oct 14 14:54:41 2024
+Elapsed time: 92 seconds
+
+Thank you for using Formality (R)!
